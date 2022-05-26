@@ -9,9 +9,11 @@ public class enemy1 : MonoBehaviour
     public NavMeshAgent agent;
     public Transform player;
     public LayerMask whatIsGround, whatIsPlayer;
+
+    public float health = 100.0f;
    // partoling
     public Vector3 walkPoint;
-     bool walkPointSet;
+    bool walkPointSet;
    // attack
     public float walkPointRange;
     public float timeBetweenAttacks;
