@@ -9,6 +9,7 @@ public class enemy1 : MonoBehaviour
     public NavMeshAgent agent;
     public Transform player;
     public LayerMask whatIsGround, whatIsPlayer;
+    public GameObject bullet;
 
     public float health = 100.0f;
    // partoling
@@ -62,11 +63,23 @@ public class enemy1 : MonoBehaviour
         transform.LookAt(player);
 
         if(!alreadyAttacked){
+
+            Rigidbody rb = Instantiate(bullet,transform.position, Quaternion.identity).GetComponent<Rigidbody>();
+            rb.AddForce(transform.forward * 10f, ForceMode.Impulse);
+
             alreadyAttacked = true;
             Invoke(nameof(ResetAtttack),timeBetweenAttacks);
         }
     }
     private void ResetAtttack(){
         alreadyAttacked = false;
+    }
+
+    public void TakeDamage(int damage){
+        health -= damage;
+
+        if (health <= 0)
+        {
+        }
     }
 }
