@@ -1,18 +1,33 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class ProjectileGun : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    // variable 
+    public GameObject bullet;
 
-    // Update is called once per frame
-    void Update()
-    {
+    public float shootForce, upwardForce;
+    public float timeBetweenShooting, spreed, reloadTime, timeBetweenShoots;
+    public int magazineSize, bulletsPerTap;
+    public bool allowButtonHold;
+
+    int bulletLeft, bulletShot;
+
+    bool shooting, readyToShoot, reloading;
+
+    public Camera fpsCam;
+    public Transform attackPoint;
+
+    public bool allowInvoke = true;
+
+
+    private void Awake() {
+        bulletLeft = magazineSize;
+        readyToShoot = true;
+    }
+    private void MyInput() {
         
     }
 }
