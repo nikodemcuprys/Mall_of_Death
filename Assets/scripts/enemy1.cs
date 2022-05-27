@@ -80,6 +80,7 @@ public class enemy1 : MonoBehaviour
 
         if (health <= 0)
         {
+            Destroy(gameObject);
         }
     }
 }
