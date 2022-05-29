@@ -99,7 +99,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 9f708a3b01b18b84a87f8788d8cd63b6, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 9b1bcc6427a15e34b8acec411e46228e, type: 2}
+      objectReference: {fileID: 2100000, guid: 9bf714a79724c4b42a1b0c269305df43, type: 2}
     - target: {fileID: 919132149155446097, guid: 9f708a3b01b18b84a87f8788d8cd63b6, type: 3}
       propertyPath: m_Name
       value: carton
@@ -251,7 +251,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 9f708a3b01b18b84a87f8788d8cd63b6, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 9b1bcc6427a15e34b8acec411e46228e, type: 2}
+      objectReference: {fileID: 2100000, guid: 9bf714a79724c4b42a1b0c269305df43, type: 2}
     - target: {fileID: 919132149155446097, guid: 9f708a3b01b18b84a87f8788d8cd63b6, type: 3}
       propertyPath: m_Name
       value: carton (1)
