@@ -129,22 +129,23 @@ public class AnimationAndMovementControl : MonoBehaviour
     }
 
     void handleShooting(){
-        RaycastHit hit;
-        Vector3 targetPoint;
+        //Instantiate(bullet, attackPoint.position, attackPoint.rotation);
+
+        // RaycastHit hit;
+         Vector3 targetPoint;
         
-        if(Physics.Raycast(transform.position,positionToLookAt,out hit,range )){
-            targetPoint = hit.point;
-        } else {
-            targetPoint.x = attackPoint.position.x - transform.position.x;
-            targetPoint.y = attackPoint.position.z - transform.position.z;
-            targetPoint.z = 0.0f;
-        }
-        Vector3 direction = targetPoint;
-        GameObject currentBullet = Instantiate(bullet, attackPoint.position, Quaternion.identity);
+        // if(Physics.Raycast(transform.position,positionToLookAt,out hit,range )){
+        //     targetPoint = hit.point;
+        // } else {
+           targetPoint.x = attackPoint.position.x - transform.position.x;
+            targetPoint.y = 0f;
+            targetPoint.z = attackPoint.position.z -transform.position.z;
+        // }
+        // Vector3 direction = targetPoint;
+         GameObject currentBullet = Instantiate(bullet, attackPoint.position, Quaternion.identity);
 
-
-        currentBullet.transform.forward = direction.normalized;
-        currentBullet.GetComponent<Rigidbody>().AddForce(direction.normalized*10.0f, ForceMode.Impulse);
+        // currentBullet.transform.forward = direction.normalized;
+        currentBullet.GetComponent<Rigidbody>().AddForce(targetPoint * 4f, ForceMode.Impulse);
 
         if(allowInvoke){
             Invoke("ResetShot", attackSpeed);

@@ -11,7 +11,6 @@ public class enemy1 : MonoBehaviour
     public LayerMask whatIsGround, whatIsPlayer;
     public GameObject bullet;
 
-    public float health = 100.0f;
    // partoling
     public Vector3 walkPoint;
     bool walkPointSet;
@@ -73,14 +72,5 @@ public class enemy1 : MonoBehaviour
     }
     private void ResetAtttack(){
         alreadyAttacked = false;
-    }
-
-    public void TakeDamage(int damage){
-        health -= damage;
-
-        if (health <= 0)
-        {
-            Destroy(gameObject);
-        }
     }
 }
