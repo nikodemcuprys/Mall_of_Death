@@ -139,7 +139,7 @@ MonoBehaviour:
   whatIsPlayer:
     serializedVersion: 2
     m_Bits: 64
-  bullet: {fileID: 4218787605219601523, guid: f9ba90896f46236429f672556d7b15f7, type: 3}
+  bullet: {fileID: 5236919611555625286, guid: 17de920a843e26646bcf9648eae99692, type: 3}
   walkPoint: {x: 0, y: 0, z: 0}
   walkPointRange: 5
   timeBetweenAttacks: 2

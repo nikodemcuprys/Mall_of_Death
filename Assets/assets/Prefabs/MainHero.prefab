@@ -1758,10 +1758,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fpsCam: {fileID: 0}
-  bullet: {fileID: 0}
+  bullet: {fileID: 4218787605219601523, guid: f9ba90896f46236429f672556d7b15f7, type: 3}
   attackPoint: {fileID: 6412170258586065454}
   damage: 50
-  attackSpeed: 2
+  attackSpeed: 1
   range: 15
   multiplier: 5
 --- !u!114 &911476265292043288

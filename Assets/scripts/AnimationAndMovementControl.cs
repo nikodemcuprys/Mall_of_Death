@@ -32,7 +32,7 @@ public class AnimationAndMovementControl : MonoBehaviour
     float rotationFactorPerFrame = 7.0f;
 
     public float damage = 10.0f;
-    public float attackSpeed = 0.5f;
+    public float attackSpeed = 0.001f;
     public float range = 15.0f;
     public float multiplier = 5.0f;
 
@@ -141,7 +141,7 @@ public class AnimationAndMovementControl : MonoBehaviour
     }
     void shoot_now(){
         if(readyToShoot) {
-            Invoke("handleShooting",0.2f);
+            Invoke("handleShooting",0.001f);
             readyToShoot = false;
             }
     }
