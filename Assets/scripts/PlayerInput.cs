@@ -46,13 +46,13 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""shoot"",
-                    ""type"": ""Button"",
-                    ""id"": ""a4fb907e-10c3-4ee0-8c74-52d7de703374"",
-                    ""expectedControlType"": ""Button"",
+                    ""name"": ""Shoot"",
+                    ""type"": ""Value"",
+                    ""id"": ""bedb771d-554e-4f4c-9e71-7f8a54620ba4"",
+                    ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": false
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -123,61 +123,6 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""keyboard [arrow key]"",
-                    ""id"": ""9164ddf3-b19e-4aef-a8a1-f93bf9072473"",
-                    ""path"": ""2DVector"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""up"",
-                    ""id"": ""96d13b54-cbc9-4dea-8a90-a04311c8aa7d"",
-                    ""path"": ""<Keyboard>/upArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""down"",
-                    ""id"": ""3991fa1d-c29e-4a7f-8f5d-5371001e001a"",
-                    ""path"": ""<Keyboard>/downArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""left"",
-                    ""id"": ""cde47d81-c849-47c1-bd2e-b0bf8585ab6b"",
-                    ""path"": ""<Keyboard>/leftArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""right"",
-                    ""id"": ""07592ebc-9e49-405c-b96d-2cd3e3bcd56c"",
-                    ""path"": ""<Keyboard>/rightArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
                     ""name"": """",
                     ""id"": ""1b8f8e32-f26e-40b7-84d0-933f81f4866b"",
                     ""path"": ""<Keyboard>/leftShift"",
@@ -200,15 +145,59 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": """",
-                    ""id"": ""ee194176-9327-465d-8791-dde6ac3f7c16"",
-                    ""path"": ""<Mouse>/leftButton"",
+                    ""name"": ""keybord [arrows]"",
+                    ""id"": ""dfd98dff-193c-42a4-a109-07e48db1145d"",
+                    ""path"": ""2DVector"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""shoot"",
-                    ""isComposite"": false,
+                    ""action"": ""Shoot"",
+                    ""isComposite"": true,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""a3aaaf64-66cc-44e6-a8a6-400627c6b579"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Shoot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""498c95e6-2223-45ee-95ab-7e5cd6de9926"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Shoot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""f08096a2-d1e1-4e6a-88d2-21f6fb7a5fc7"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Shoot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""0ab0dcac-6e71-43c4-8005-037c1a6a3e92"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Shoot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         }
@@ -219,7 +208,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         m_CharacterControls = asset.FindActionMap("CharacterControls", throwIfNotFound: true);
         m_CharacterControls_Move = m_CharacterControls.FindAction("Move", throwIfNotFound: true);
         m_CharacterControls_Run = m_CharacterControls.FindAction("Run", throwIfNotFound: true);
-        m_CharacterControls_shoot = m_CharacterControls.FindAction("shoot", throwIfNotFound: true);
+        m_CharacterControls_Shoot = m_CharacterControls.FindAction("Shoot", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -281,14 +270,14 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
     private ICharacterControlsActions m_CharacterControlsActionsCallbackInterface;
     private readonly InputAction m_CharacterControls_Move;
     private readonly InputAction m_CharacterControls_Run;
-    private readonly InputAction m_CharacterControls_shoot;
+    private readonly InputAction m_CharacterControls_Shoot;
     public struct CharacterControlsActions
     {
         private @PlayerInput m_Wrapper;
         public CharacterControlsActions(@PlayerInput wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_CharacterControls_Move;
         public InputAction @Run => m_Wrapper.m_CharacterControls_Run;
-        public InputAction @shoot => m_Wrapper.m_CharacterControls_shoot;
+        public InputAction @Shoot => m_Wrapper.m_CharacterControls_Shoot;
         public InputActionMap Get() { return m_Wrapper.m_CharacterControls; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -304,9 +293,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @Run.started -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnRun;
                 @Run.performed -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnRun;
                 @Run.canceled -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnRun;
-                @shoot.started -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnShoot;
-                @shoot.performed -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnShoot;
-                @shoot.canceled -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnShoot;
+                @Shoot.started -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnShoot;
+                @Shoot.performed -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnShoot;
+                @Shoot.canceled -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnShoot;
             }
             m_Wrapper.m_CharacterControlsActionsCallbackInterface = instance;
             if (instance != null)
@@ -317,9 +306,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @Run.started += instance.OnRun;
                 @Run.performed += instance.OnRun;
                 @Run.canceled += instance.OnRun;
-                @shoot.started += instance.OnShoot;
-                @shoot.performed += instance.OnShoot;
-                @shoot.canceled += instance.OnShoot;
+                @Shoot.started += instance.OnShoot;
+                @Shoot.performed += instance.OnShoot;
+                @Shoot.canceled += instance.OnShoot;
             }
         }
     }

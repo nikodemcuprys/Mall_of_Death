@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class AnimationAndMovementControl : MonoBehaviour
@@ -20,6 +21,8 @@ public class AnimationAndMovementControl : MonoBehaviour
 
     Vector2 currentMovementInput;
     Vector3 currentMovement;
+    Vector2 currentShootInput;
+    Vector3 currentShoot;
     Vector3 positionToLookAt;
     bool isMovementPressed;
     bool isRunPressed;
@@ -29,7 +32,7 @@ public class AnimationAndMovementControl : MonoBehaviour
     float rotationFactorPerFrame = 7.0f;
 
     public float damage = 10.0f;
-    public float attackSpeed = 1.0f;
+    public float attackSpeed = 0.5f;
     public float range = 15.0f;
     public float multiplier = 5.0f;
 
@@ -49,14 +52,19 @@ public class AnimationAndMovementControl : MonoBehaviour
         playerInput.CharacterControls.Run.started += onRun;
         playerInput.CharacterControls.Run.canceled += onRun;
 
-        playerInput.CharacterControls.shoot.started += onShoot;
-        playerInput.CharacterControls.shoot.canceled += onShoot;
+        playerInput.CharacterControls.Shoot.started += onShoot;
+        playerInput.CharacterControls.Shoot.canceled += onShoot;
+        playerInput.CharacterControls.Shoot.performed += onShoot;
+
 
     }
 
     // Input states
     void onShoot(InputAction.CallbackContext context){
-        isShootPressed = context.ReadValueAsButton();
+        currentShootInput = context.ReadValue<Vector2>();
+        currentShoot.x = currentShootInput.x;
+        currentShoot.z = currentShootInput.y;
+        isShootPressed = currentShootInput.x != 0 || currentShootInput.y != 0;
     }
 
     void onRun(InputAction.CallbackContext context){
@@ -70,16 +78,26 @@ public class AnimationAndMovementControl : MonoBehaviour
         isMovementPressed = currentMovementInput.x != 0 || currentMovementInput.y != 0;
     }
 
+
     // phisics
     void handleRotation(){
+        Vector3 positionToLookAt;
 
-        positionToLookAt.x = currentMovement.x;
-        positionToLookAt.y = 0.0f;
-        positionToLookAt.z = currentMovement.z;
+        if(isShootPressed){
+            positionToLookAt.x = currentShoot.x;
+            positionToLookAt.y = 0f;
+            positionToLookAt.z = currentShoot.z;
+        } else {
+            positionToLookAt.x = currentMovement.x;
+            positionToLookAt.y = 0f;
+            positionToLookAt.z = currentMovement.z;
+        }
+        
+
+
 
         Quaternion currentRotation = transform.rotation;
-
-        if (isMovementPressed){
+        if(isMovementPressed || isShootPressed){
             Quaternion targetRotation = Quaternion.LookRotation(positionToLookAt);
             transform.rotation = Quaternion.Slerp(currentRotation, targetRotation, rotationFactorPerFrame * Time.deltaTime);
         }
@@ -91,25 +109,25 @@ public class AnimationAndMovementControl : MonoBehaviour
         bool isRunning = animator.GetBool(isRunningHash);
         bool isShooting = animator.GetBool( isShootingHash);
 
-        if ((isMovementPressed && !isWalking) && !isShootPressed){
+        if ((isMovementPressed && !isWalking)){
             animator.SetBool( isWalkingHash, true);
         }
-        else if ((!isMovementPressed && isWalking) || isShootPressed){
+        else if ((!isMovementPressed && isWalking)){
             animator.SetBool(isWalkingHash, false);
         }
 
-        if(((isMovementPressed && !isRunPressed) && !isRunning)&& !isShootPressed){
+        if(((isMovementPressed && !isRunPressed) && !isRunning)){
             animator.SetBool(isRunningHash, true);
         }
-        else if (((!isMovementPressed || isRunPressed)&& isRunning)|| isShootPressed){
+        else if (((!isMovementPressed || isRunPressed)&& isRunning)){
             animator.SetBool(isRunningHash, false);
         }
-        if (isShootPressed)
-        {
-            animator.SetBool(isShootingHash, true);
-        } else if (!isShootPressed && isShooting){
-            animator.SetBool(isShootingHash, false);
-        }
+        // if (isShootPressed)
+        // {
+        //     animator.SetBool(isShootingHash, true);
+        // } else if (!isShootPressed && isShooting){
+        //     animator.SetBool(isShootingHash, false);
+        // }
     }
 
     void handleGravity(){
@@ -145,7 +163,7 @@ public class AnimationAndMovementControl : MonoBehaviour
          GameObject currentBullet = Instantiate(bullet, attackPoint.position, Quaternion.identity);
 
         // currentBullet.transform.forward = direction.normalized;
-        currentBullet.GetComponent<Rigidbody>().AddForce(targetPoint * 4f, ForceMode.Impulse);
+        currentBullet.GetComponent<Rigidbody>().AddForce(currentShoot * 7f, ForceMode.Impulse);
 
         if(allowInvoke){
             Invoke("ResetShot", attackSpeed);
@@ -166,12 +184,11 @@ public class AnimationAndMovementControl : MonoBehaviour
 
         if (isShootPressed){
             shoot_now();
+        }
+        if (!isRunPressed){
+            characterController.Move(currentMovement * multiplier * Time.deltaTime);
         } else {
-            if (!isRunPressed){
-                characterController.Move(currentMovement * multiplier * Time.deltaTime);
-            } else {
-                characterController.Move(currentMovement * Time.deltaTime);
-            }
+            characterController.Move(currentMovement * Time.deltaTime);
         }
 
     }
@@ -183,5 +200,8 @@ public class AnimationAndMovementControl : MonoBehaviour
 
     void OnDisable() {
         playerInput.CharacterControls.Disable();
+    }
+    private void OnDestroy() {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }

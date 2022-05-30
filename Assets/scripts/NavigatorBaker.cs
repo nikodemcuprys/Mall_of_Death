@@ -7,7 +7,7 @@ public class NavigatorBaker : MonoBehaviour
 {
     public NavMeshSurface[] surfaces;
 
-    void Awake()
+    void Start()
     {
         for (int i = 0; i < surfaces.Length; i++)
         {

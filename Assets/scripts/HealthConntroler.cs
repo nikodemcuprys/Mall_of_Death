@@ -9,7 +9,11 @@ public class HealthConntroler : MonoBehaviour
     public HealthBar healthBar;
 
     void Start(){
-        healthBar.SetMaxHealth(health);
+        if (healthBar){
+             healthBar.SetMaxHealth(health);
+        } else {
+            Destroy(gameObject);
+        }
     }
 
     public void TakeDamage(int damage){

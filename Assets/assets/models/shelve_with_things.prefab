@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 96025560405457207}
+  - component: {fileID: 8052857762940092411}
   m_Layer: 0
   m_Name: shelve_with_things
   m_TagString: Untagged
@@ -24,13 +25,26 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 96025560405457204}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 16.395365, y: 2.6189795, z: 25.361631}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 495290132591540673}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &8052857762940092411
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 96025560405457204}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.88258255, y: 2.8892179, z: 2.1476789}
+  m_Center: {x: 0.058708727, y: 1.4398634, z: -0.016875982}
 --- !u!1001 &96025560589714269
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -105,15 +119,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8474321ab94def24498598e1a5307919, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.407
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8474321ab94def24498598e1a5307919, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.841
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8474321ab94def24498598e1a5307919, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.8616314
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8474321ab94def24498598e1a5307919, type: 3}
       propertyPath: m_LocalRotation.w
@@ -146,7 +160,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 8474321ab94def24498598e1a5307919, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 1aca063e882b999469c8324c19116073, type: 2}
+      objectReference: {fileID: -2430206179221912503, guid: e10bbcb12271e2f42a1d70b4d549096f, type: 3}
     - target: {fileID: 919132149155446097, guid: 8474321ab94def24498598e1a5307919, type: 3}
       propertyPath: m_Name
       value: shelves_1
@@ -346,7 +360,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 9f708a3b01b18b84a87f8788d8cd63b6, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 9b1bcc6427a15e34b8acec411e46228e, type: 2}
+      objectReference: {fileID: 2100000, guid: 9bf714a79724c4b42a1b0c269305df43, type: 2}
     - target: {fileID: 919132149155446097, guid: 9f708a3b01b18b84a87f8788d8cd63b6, type: 3}
       propertyPath: m_Name
       value: carton_bb

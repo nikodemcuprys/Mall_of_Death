@@ -8,6 +8,7 @@ public class enemy1 : MonoBehaviour
 {
     public NavMeshAgent agent;
     public Transform player;
+    public Transform attackPoint;
     public LayerMask whatIsGround, whatIsPlayer;
     public GameObject bullet;
 
@@ -63,7 +64,7 @@ public class enemy1 : MonoBehaviour
 
         if(!alreadyAttacked){
 
-            Rigidbody rb = Instantiate(bullet,transform.position, Quaternion.identity).GetComponent<Rigidbody>();
+            Rigidbody rb = Instantiate(bullet,attackPoint.position, Quaternion.identity).GetComponent<Rigidbody>();
             rb.AddForce(transform.forward * 10f, ForceMode.Impulse);
 
             alreadyAttacked = true;
