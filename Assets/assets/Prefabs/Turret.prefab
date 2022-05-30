@@ -7,6 +7,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3674534687337637552, guid: 1b01c4eb8f5aa654aa79523a3a9e46de, type: 3}
+      propertyPath: healthBar
+      value: 
+      objectReference: {fileID: 7465897154789689840}
+    - target: {fileID: 4472650862673805046, guid: 1b01c4eb8f5aa654aa79523a3a9e46de, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4472650862673805046, guid: 1b01c4eb8f5aa654aa79523a3a9e46de, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8903415298576076976, guid: 1b01c4eb8f5aa654aa79523a3a9e46de, type: 3}
       propertyPath: m_Speed
       value: 0.001
@@ -109,7 +121,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8903415298576076983, guid: 1b01c4eb8f5aa654aa79523a3a9e46de, type: 3}
       propertyPath: timeBetweenAttacks
-      value: 0.3
+      value: 0.7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1b01c4eb8f5aa654aa79523a3a9e46de, type: 3}
@@ -118,6 +130,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8903415298576076982, guid: 1b01c4eb8f5aa654aa79523a3a9e46de, type: 3}
   m_PrefabInstance: {fileID: 6453163120907588917}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7465897154789689840 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4472650862028643525, guid: 1b01c4eb8f5aa654aa79523a3a9e46de, type: 3}
+  m_PrefabInstance: {fileID: 6453163120907588917}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f00236d465fc0b45b83ec5dcbf3ec82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!65 &8334990105246964937
 BoxCollider:
   m_ObjectHideFlags: 0
